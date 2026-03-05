@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: traffic-report-system
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/traffic_reporter_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 12345
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  flyway:
+    enabled: true
+    locations: "classpath:db/migration"
+    baseline-on-migrate: true
+
+  logging:
+    level:
+      org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate: DEBUG
+      org.springframework.jdbc.core.JdbcTemplate: DEBUG
+
+
+  jwt:
+    secret: ${JWT_SECRET:q1z3Z8p6f2L9w7R1y4V3m0T8n2U5b6Q9k7C2j3R4p8Y1u2Z6d4W5r1X8t9M0v7=}
+    expiration: ${JWT_EXPIRATION_SECONDS:36000}
+
+server:
+  port: 8090
+
