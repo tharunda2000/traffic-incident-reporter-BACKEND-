@@ -19,9 +19,9 @@ spring:
       org.springframework.jdbc.core.JdbcTemplate: DEBUG
 
 
-  jwt:
-    secret: ${JWT_SECRET:q1z3Z8p6f2L9w7R1y4V3m0T8n2U5b6Q9k7C2j3R4p8Y1u2Z6d4W5r1X8t9M0v7=}
-    expiration: ${JWT_EXPIRATION_SECONDS:36000}
+jwt:
+  secret: ${JWT_SECRET:MnaPxku4b1ZVb1vxYpj78hFmGKK6nC8oeh/eO4Mzh4A=}
+  expiration: ${JWT_EXPIRATION_SECONDS:36000}
 
 server:
   port: 8090

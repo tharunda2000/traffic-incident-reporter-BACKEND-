@@ -8,6 +8,8 @@ CREATE TABLE USERS (
         password VARCHAR(255) NOT NULL,
         email VARCHAR(100) NOT NULL UNIQUE,
         mobile VARCHAR(15) NOT NULL UNIQUE,
+        role ENUM('ADMIN','USER') NOT NULL,
+        is_active tinyint(1) DEFAULT '0',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
