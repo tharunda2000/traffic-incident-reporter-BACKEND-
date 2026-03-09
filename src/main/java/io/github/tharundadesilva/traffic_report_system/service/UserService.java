@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Service;
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
-    private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
 
     @Override
     @NonNull
@@ -31,9 +29,5 @@ public class UserService implements UserDetailsService {
         return new UserPrincipal(user);
     }
 
-    public User register(User user){
-        user.setPassword(encoder.encode(user.getPassword()));
-        return userRepository.save(user);
-    }
 
 }
