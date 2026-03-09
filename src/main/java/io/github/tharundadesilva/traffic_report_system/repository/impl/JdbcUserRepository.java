@@ -48,7 +48,6 @@ public class JdbcUserRepository implements UserRepository {
 
         user.setId(Objects.requireNonNull(keyHolder.getKey()).longValue());
         user.setRole("USER");
-
         return user;
     }
 
