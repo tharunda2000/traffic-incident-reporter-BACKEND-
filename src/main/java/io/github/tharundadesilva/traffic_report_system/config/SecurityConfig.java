@@ -1,5 +1,5 @@
 package io.github.tharundadesilva.traffic_report_system.config;
-import io.github.tharundadesilva.traffic_report_system.service.JwtAuthFilter;
+import io.github.tharundadesilva.traffic_report_system.security.JwtAuthFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

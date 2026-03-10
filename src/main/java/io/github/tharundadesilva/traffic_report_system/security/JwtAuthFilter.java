@@ -1,6 +1,6 @@
-package io.github.tharundadesilva.traffic_report_system.service;
+package io.github.tharundadesilva.traffic_report_system.security;
 
-import io.github.tharundadesilva.traffic_report_system.security.JwtService;
+import io.github.tharundadesilva.traffic_report_system.service.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
