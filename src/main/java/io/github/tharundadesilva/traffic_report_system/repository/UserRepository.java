@@ -9,4 +9,8 @@ public interface UserRepository {
     User findByUsername(String username);
 
     User findById(Long id);
+
+    Long delete(Long id);
+
+    void update(User user);
 }
