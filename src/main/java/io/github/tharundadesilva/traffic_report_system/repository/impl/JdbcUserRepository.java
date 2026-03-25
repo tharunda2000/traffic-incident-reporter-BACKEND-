@@ -33,19 +33,22 @@ public class JdbcUserRepository implements UserRepository {
             .email(rs.getString(EMAIL))
             .mobile(rs.getString(MOBILE))
             .isActive(rs.getBoolean("is_active"))
+            .defaultPortal(rs.getString("default_portal"))
             .createdAt(rs.getTimestamp("created_at").toLocalDateTime())
             .build();
 
     @Override
+    @Transactional
     public User save(User user) {
-        String sql = "INSERT INTO users (username, password, email, mobile, is_active)"+
-                     "VALUES (:username, :password, :email, :mobile, :isActive)";
+        String sql = "INSERT INTO users (username, password, email, mobile, is_active, default_portal)"+
+                     "VALUES (:username, :password, :email, :mobile, :isActive, :defaultPortal)";
         MapSqlParameterSource params = new MapSqlParameterSource()
                 .addValue(USERNAME,user.getUsername())
                 .addValue("password", user.getPassword()) // Hashed password from Service
                 .addValue(EMAIL, user.getEmail())
                 .addValue(MOBILE, user.getMobile())
-                .addValue("isActive", 1);
+                .addValue("isActive", 1)
+                .addValue("defaultPortal", user.getDefaultPortal());
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(sql,params,keyHolder);
@@ -100,7 +103,7 @@ public class JdbcUserRepository implements UserRepository {
         MapSqlParameterSource params = new MapSqlParameterSource()
                 .addValue(EMAIL, user.getEmail())
                 .addValue(MOBILE, user.getMobile())
-                .addValue("isActive", user.isActive() ? 1 : 0)
+                .addValue("isActive", user.getIsActive())
                 .addValue("id", user.getId());
 
         jdbcTemplate.update(sql, params);

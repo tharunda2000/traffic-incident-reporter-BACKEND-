@@ -24,5 +24,8 @@ jwt:
   expiration: ${JWT_EXPIRATION_SECONDS:36000}
 
 server:
-  port: 8090
+  port: 8091
+
+app:
+  allowed-origins: http://localhost:5173
 

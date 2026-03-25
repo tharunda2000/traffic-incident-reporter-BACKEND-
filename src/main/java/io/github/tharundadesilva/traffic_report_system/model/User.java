@@ -18,7 +18,8 @@ public class User {
     private String password;
     private String email;
     private String mobile;
+    private String defaultPortal;
     private Set<String> roles; // Stores 'ADMIN' or 'USER'
-    private boolean isActive;
+    private Boolean isActive;
     private LocalDateTime createdAt;
 }
